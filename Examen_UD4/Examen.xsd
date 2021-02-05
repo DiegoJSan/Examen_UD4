@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xs:element  name= "pedido" Type= "tipoPedido"  minOccurs="1" maxOccurs="unbounded">
+        <xs:compleType>
+            <xs:secuence>
+                <xs:element name= "sucursal"  minOccurs="1" maxOccurs="unbounded">
+                    <xs:compleType>
+                        <xs:secuence>
+                            <xs:element name= "direccion" Type= "xs:string"/>
+                            <xs:element name= "nombre" Type= "xs:string"/>
+                            <xs:element name= "fecha" Type= "xs:date"/>
+                            <xs:element name= "obs_Suc" Type= "tipoObs_Suc"/>
+                            <xs:element name= "articulos" Type= "xs:string"  minOccurs="1" maxOccurs="unbounded">
+                                <xs:compleType>
+                                    <xs:secuence> 
+                                        <xs:element name= "unidades" Type= "xs:positiveInteger"/>
+                                        <xs:element name= "precio" Type= "xs:decimal"/>
+                                        <xs:element name= "obs_Art" Type= "xs:string"/>
+                                        <xs:element name= "plazo" Type= "tipoPlazo" />
+                                    <xs:secuence>
+                                    <xs:attribute name= "codigoArt" Type= "codArticulo">
+                                </xs:compleType>
+                            </xs:element>     
+                        </xs:secuence>
+                        <xs:attribute name= "codigoSuc" Type= "codSucursal">
+                    </xs:compleType>
+                </xs:element>
+            </xs:secuence>
+            <xs:attribute name= "num" Type= "numPedido">               
+        </xs:compleType>
+    </xs:element>
+
+    <xs:simpleType name= "tipoPedido">
+        <xs:restriction base= "xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name= "codSucursal">
+        <xs:restriction base= "xs:string">
+            <xs:pattern value="[A-Za-z]{1}[0-9]{7}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name= "codArticulo">
+        <xs:restriction base= "xs:string">
+            <xs:pattern value="[A-Z]{3}-[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name= "numPedido">
+        <xs:restriction base= "xs:string">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name= "tipoPlazo">
+        <xs:restriction base= "xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="31"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name= "tipoObs_Suc">
+        <xs:restriction base= "xs:string">
+            <xs:enumeration value="Urgente"/>
+		    <xs:enumeration value="Incompleto"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

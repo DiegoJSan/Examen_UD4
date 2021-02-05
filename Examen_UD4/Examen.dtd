@@ -1,0 +1,15 @@
+<?xml version= "1.0" encoding= "ISO-8859-1"?>
+<!ELEMENT pedidos (pedido+)>
+<!ELEMENT pedido (sucursal+)>
+<!ATTLIST pedido num CDATA #REQUIRED>
+<!ELEMENT sucursal (direccion?, nombre, fecha, obs_Suc, articulos+)>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT obs_Art (#PCDATA)>
+<!ELEMENT articulos (unidades, precio, obs_Art, plazo)>
+<!ATTLIST articulos codigoArt CDATA #REQUIRED>
+<!ELEMENT unidades (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+<!ELEMENT obs_Art (#PCDATA)>
+<!ELEMENT plazo (#PCDATA)>

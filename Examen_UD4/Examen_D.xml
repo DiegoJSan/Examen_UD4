@@ -1,0 +1,18 @@
+<?xml version= "1.0" encoding= "ISO-8859-1"?>
+<!DOCTYPE pedidos SYSTEM "Examen.dtd">
+<pedidos>
+    <pedido num= "1">
+        <sucursal codigoSuc = "A1234567">
+            <direccion>Calle Sierra</direccion>
+            <nombre>Antonio</nombre>
+            <fecha>2021-02-02</fecha>
+            <obs_Suc>urgente</obs_Suc>          
+            <articulos codigoArt= "ABC-123">
+                <unidades>25</unidades>
+                <precio>4.30</precio>
+                <obs_Art>Última unidad</obs_Art>
+                <plazo>5</plazo>
+            </articulos>           
+        </sucursal>
+    </pedido>
+</pedidos>
